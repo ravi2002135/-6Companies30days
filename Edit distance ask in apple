@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+int updateWord(const std::vector<std::string>& words, const std::string& startWord, const std::string& endWord) {
+    // your code goes here
+    auto beginIt = find(words.begin(),words.end(),startWord);
+    auto endIt = find(words.begin(),words.end(),endWord);
+    if(beginIt != words.end() && endIt != words.end()){
+        int d = distance(beginIt,endIt);
+        return d;
+    }
+    return -1;
+
+}
+
+// comment out main() before running tests
+int main() {
+    // debug your code below
+    std::vector<std::string> wordList = {"hit", "hot", "dot", "dog", "cog"};
+    std::string beginWord = "hit";
+    std::string endWord = "cog";
+
+    std::cout << updateWord(wordList, beginWord, endWord) << std::endl; // Output: 4
+
+    return 0;
+}
